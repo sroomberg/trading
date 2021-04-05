@@ -1,0 +1,18 @@
+input innerDev = 2;
+input outerDev = 3;
+input price = close;
+
+def regression = InertiaAll(price);
+def stdDeviation = StDevAll(price);
+
+plot regressionLine = regression;
+plot innerDevUpper = regression + (innerDev * stdDeviation);
+plot innerDevLower = regression - (innerDev * stdDeviation);
+plot outerDevUpper = regression + (outerDev * stdDeviation);
+plot outerDevLower = regression - (outerDev * stdDeviation);
+
+regressionLine.setDefaultColor(Color.WHITE);
+innerDevUpper.setDefaultColor(Color.YELLOW);
+innerDevLower.setDefaultColor(Color.YELLOW);
+outerDevUpper.setDefaultColor(Color.LIGHT_ORANGE);
+outerDevLower.setDefaultColor(Color.LIGHT_ORANGE);
