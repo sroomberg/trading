@@ -2,8 +2,8 @@ input innerDev = 2;
 input outerDev = 3;
 input price = close;
 
-def regression = InertiaAll(price);
-def stdDeviation = StDevAll(price);
+def regression = InertiaAll(price, extendToRight=yes);
+def stdDeviation = StDevAll(price, extendToRight=yes);
 
 plot regressionLine = regression;
 plot innerDevUpper = regression + (innerDev * stdDeviation);
